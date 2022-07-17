@@ -1,7 +1,3 @@
-# This is a sample Python script.pip
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 # import library
 import matplotlib.pyplot as plt
@@ -12,7 +8,6 @@ import numpy as np
 import yfinance as yf
 import requests  # pip install requests
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
-
 
 
 st.set_page_config(page_title="i-Capitale App",page_icon="📈️",layout="centered",initial_sidebar_state="expanded")
@@ -71,10 +66,9 @@ def MainPage():
 
         st.write("#### Predicting Stock Market Trends")
         st.write("The nature of stock market movement has always been ambiguous for investor because of"
-                "various influential factors. ***i-Capitale*** aims to significantly reduce the risk of trend"
+                " various influential factors. Here, ***i-Capitale*** aims to significantly reduce the risk of trend"
                 " prediction with machine learning algorithms.")
 
-    st.write("Add a video tour here?If got time to do so lah")
     st.text("\n")
     st.text("\n")
     st.text("\n")
@@ -92,7 +86,7 @@ def MainPage():
         # front end elements of the web page
         html_temp = """ 
                <div style ="background-color:#ecdd9c; height:150px; padding:13px"> 
-               <p style ="color:black;text-align:center;">The best app for forecasting the chaotic stock market movement in the future</p> 
+               <p style ="color:black;text-align:center;">The best App for forecasting the chaotic stock market movement in the future</p> 
                </div> 
                """
 
@@ -167,26 +161,30 @@ def MainPage():
 
     st.header("FAQ About i-Capitale")
 
-    with st.expander("⚙️How do I reset my User ID or Password?", expanded=False):
+    with st.expander("⚙️How to use i-Capitale?", expanded=False):
         st.write(
             """    
-            We make it easy to retrieve your User ID and reset your password online.
+            1. Go to Menu sidebar
+            2. Click 'Prediction Results' button.
+            3. Select one of the 22 companies you desired to visualize.
+            4. You are able to get visualizations to evaluate its performance for further insights now!
             """
         )
 
     with st.expander("⚙️Why i-Capitale is our primary choice?", expanded=False):
         st.write(
             """    
-            We make it easy to retrieve your User ID and reset your password online.
+            Our model discovers the future value of company stock with an average accuracy of above 80%.
             """
         )
 
     with st.expander("⚙️What is the main purpose of i-Capitale?", expanded=False):
         st.write(
             """    
-            We make it easy to retrieve your User ID and reset your password online.
+            To predict the daily closing prices of 22 selected stocks for the next 90 days starting 1 Jan 2022 to help the investors in proper decision-making.
             """
         )
+
 
 
 
@@ -231,8 +229,7 @@ def OurModel():
     st.write("##### There are *4* technical indicators used in technical analysis:")
     """ 
     * Exponential Moving Average(EMA)
-    * Moving Average Convergence 
-    * Divergence(MACD)
+    * Moving Average Convergence Divergence(MACD)
     * Volume Oscillator
     * Relative Strength Index(RSI) 
     """
@@ -245,7 +242,7 @@ def OurModel():
             "at the sentence level or class level, whether it reflects a positive, negative, or neutral. ")
     st.write("#### Highlight 2: ")
     st.write("Our model predict well for sudden changes in the trend of stock data. "
-            "For instance, external factors and real-world changes such as **Financial Crisis* and *COVID 19 Pandemic**.")
+            "For instance, external factors and real-world changes such as ***Financial Crisis*** and ***COVID 19 Pandemic***.")
 
     st.text("\n")
     st.text("\n")
@@ -264,47 +261,62 @@ def OurModel():
     st.text("\n")
     st.text("\n")
 
-    st.subheader("Here wanna do selected box to select a certain company and then visualise all the data?")
-    st.subheader("Volume vs Stock movement")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
-    st.text("\n")
-    st.subheader("Open Price vs Stock movement")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
-    st.text("\n")
-    st.subheader("Close Price vs Stock movement")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
-    st.markdown("\n")
-    st.subheader("Confusion Matrix")
-    st.write("##### Training")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
+    option = st.selectbox(
+        'Please select a company: ',
+        ('-','AHEALTH', 'APM', 'BIOHLDG','BSTEAD', 'CAPITALA', 'EUPE','HPMT', 'ICAP', 'KGB',
+         'KRONO', 'LUXCHEM', 'MKH','OCK', 'OCNCASH', 'PADINI','PARKSON', 'SALUTE', 'SAM','SURIA', 'TONGHER',
+         'UTDPLT', 'WELLCAL'))
+
+    st.write('You selected: ', option)
+
     st.text("\n")
     st.text("\n")
-    st.write("##### Validation")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
     st.text("\n")
     st.text("\n")
-    st.write("##### Testing")
-    st.image(
-        "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-        width=600,  # Manually Adjust the width of the image as per requirement
-    )
-    st.text("\n")
-    st.text("\n")
+
+    if(option!='-'):
+        st.subheader("Volume vs Stock movement")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.text("\n")
+        st.subheader("Open Price vs Stock movement")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.text("\n")
+        st.subheader("Close Price vs Stock movement")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.markdown("\n")
+        st.subheader("Confusion Matrix")
+        st.write("##### Training")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.text("\n")
+        st.text("\n")
+        st.write("##### Validation")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.text("\n")
+        st.text("\n")
+        st.write("##### Testing")
+        st.image(
+            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+            width=600,  # Manually Adjust the width of the image as per requirement
+        )
+        st.text("\n")
+        st.text("\n")
+    else:
+        st.info('Hey! HERE for you to choose a company to have a better data visualization.')
 
 
 
@@ -343,7 +355,7 @@ def Results():
         st.title("Stock Prediction")
 
     st.markdown(
-        '<div style="text-align: justify;">Daily closing prices of 22 selected stocks for the next 90 days are predicted...Result for the closing price...</div>',
+        '<div style="text-align: justify;">Daily closing prices of 22 selected stocks for the next 90 days are predicted.</div>',
         unsafe_allow_html=True)
     st.text("\n")
 
@@ -355,12 +367,32 @@ def Results():
     # get the historical prices for this ticker
     tickerDf = tickerData.history(period='1d', start='2010-5-31', end='2020-5-31')
     # Open	High	Low	Close	Volume	Dividends	Stock Splits
-    st.subheader("here also can put selected box for 22 companies for users to choose then show..and the sentiment analysis/financial crisis also hv to add on")
 
-    st.write("""
-           ## Closing Price of that chosen company de 					
-           """)
-    st.line_chart(tickerDf.Close)
+    st.text("\n")
+    st.text("\n")
+    st.text("\n")
+
+    option = st.selectbox(
+        'Please select a company: ',
+        ('-', 'AHEALTH', 'APM', 'BIOHLDG', 'BSTEAD', 'CAPITALA', 'EUPE', 'HPMT', 'ICAP', 'KGB',
+         'KRONO', 'LUXCHEM', 'MKH', 'OCK', 'OCNCASH', 'PADINI', 'PARKSON', 'SALUTE', 'SAM', 'SURIA', 'TONGHER',
+         'UTDPLT', 'WELLCAL'))
+
+    st.write('You selected: ', option)
+
+    st.text("\n")
+    st.text("\n")
+    st.text("\n")
+    st.text("\n")
+
+    if (option != '-'):
+        st.write("""
+                   ## Closing Price 					
+                   """)
+        st.line_chart(tickerDf.Close)
+    else:
+        st.info('Hey! HERE for you to visualize the closing price of your selected company.')
+
     st.write("\n")
     st.write("\n")
     st.write("\n")
@@ -412,12 +444,21 @@ def Consultants():
         st.write("\n")
         st.title("Professor Consultants")
 
-
-    st.write("Premium Plan arh? In-app purchase ")
-    st.write("Consultant fee per hour: *RM500* (temporary price arh)")
-    st.write("Help your company earn RM10000 in one month!!!")
     st.text("\n")
-    st.write("###### All information are strictly confidential.")
+
+    st.write("##### Our professor consultant teams from i-Capitale are here to guide you now!")
+    st.write("Consultant Cost per hour: **RM200** ")
+    st.write("Help your company to earn at least RM10000 in **ONE** month!")
+    st.write("Don't miss this opportunity!")
+
+    st.image(
+        "https://images.assetsdelivery.com/compings_v2/terrry4/terrry42001/terrry4200100119.jpg",
+        width=500,  # Manually Adjust the width of the image as per requirement
+    )
+
+    st.text("\n")
+    st.text("\n")
+    st.info("All information during consultation are strictly confidential.")
 
 
 
@@ -486,8 +527,7 @@ def AboutUs():
 
     if feedback:
         st.header("Thank you for rating the app!")
-        st.info(
-            "Caution: This is just a prediction. There are still unknown stock risks.")
+    
 
 
 
@@ -514,4 +554,4 @@ elif selected == "Consultants":
     Consultants()
 
 elif selected == "About Us":
-    AboutUs()
+    A

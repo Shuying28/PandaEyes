@@ -10,7 +10,7 @@ import requests  # pip install requests
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 
 
-st.set_page_config(page_title="i-Capitale App",page_icon="📈️",layout="centered",initial_sidebar_state="expanded")
+st.set_page_config(page_title="i-Capitale App",page_icon="📈️",layout="wide",initial_sidebar_state="expanded")
 
 
 
@@ -161,13 +161,10 @@ def MainPage():
 
     st.header("FAQ About i-Capitale")
 
-    with st.expander("⚙️How to use i-Capitale?", expanded=False):
+    with st.expander("⚙️What is the main purpose of i-Capitale?", expanded=False):
         st.write(
             """    
-            1. Go to Menu sidebar
-            2. Click 'Prediction Results' button.
-            3. Select one of the 22 companies you desired to visualize.
-            4. You are able to get visualizations to evaluate its performance for further insights now!
+            To predict the daily closing prices of 22 selected stocks for the next 90 days starting 1 Jan 2022 to help the investors in proper decision-making.
             """
         )
 
@@ -178,12 +175,16 @@ def MainPage():
             """
         )
 
-    with st.expander("⚙️What is the main purpose of i-Capitale?", expanded=False):
+    with st.expander("⚙️How to use i-Capitale?", expanded=False):
         st.write(
             """    
-            To predict the daily closing prices of 22 selected stocks for the next 90 days starting 1 Jan 2022 to help the investors in proper decision-making.
+            1. Go to Menu sidebar
+            2. Click 'Prediction Results' button.
+            3. Select one of the 22 companies you desired to visualize.
+            4. You are able to get visualizations to evaluate its performance for further insights now!
             """
         )
+
 
 
 
@@ -237,10 +238,6 @@ def OurModel():
     st.write("\n")
 
     st.subheader("Highlight Of i-Capitale")
-    st.write("#### Highlight 1: ")
-    st.write("Our model is extended to analyze unstructured textual information from Twitter and classify the polarity of a given text "
-            "at the sentence level or class level, whether it reflects a positive, negative, or neutral. ")
-    st.write("#### Highlight 2: ")
     st.write("Our model predict well for sudden changes in the trend of stock data. "
             "For instance, external factors and real-world changes such as ***Financial Crisis*** and ***COVID 19 Pandemic***.")
 
@@ -275,48 +272,50 @@ def OurModel():
     st.text("\n")
 
     if(option!='-'):
-        st.subheader("Volume vs Stock movement")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.text("\n")
-        st.subheader("Open Price vs Stock movement")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.text("\n")
-        st.subheader("Close Price vs Stock movement")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.markdown("\n")
-        st.subheader("Confusion Matrix")
-        st.write("##### Training")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.text("\n")
-        st.text("\n")
-        st.write("##### Validation")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.text("\n")
-        st.text("\n")
-        st.write("##### Testing")
-        st.image(
-            "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-            width=600,  # Manually Adjust the width of the image as per requirement
-        )
-        st.text("\n")
-        st.text("\n")
-    else:
-        st.info('Hey! HERE for you to choose a company to have a better data visualization.')
+        if(option=='AHEALTH'):
+            st.subheader("Open Price for last 90 days")
+
+            st.text("\n")
+            image5 = Image.open('images/AHEALTH_open.PNG')
+            st.image(image5)
+
+            st.text("\n")
+            st.subheader("Close Price for last 90 days")
+            st.image(
+                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+                width=600,  # Manually Adjust the width of the image as per requirement
+            )
+            st.text("\n")
+            st.subheader("Close Price vs Stock movement")
+            st.image(
+                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+                width=600,  # Manually Adjust the width of the image as per requirement
+            )
+            st.markdown("\n")
+            st.subheader("Confusion Matrix")
+            st.write("##### Training")
+            st.image(
+                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+                width=600,  # Manually Adjust the width of the image as per requirement
+            )
+            st.text("\n")
+            st.text("\n")
+            st.write("##### Validation")
+            st.image(
+                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+                width=600,  # Manually Adjust the width of the image as per requirement
+            )
+            st.text("\n")
+            st.text("\n")
+            st.write("##### Testing")
+            st.image(
+                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
+                width=600,  # Manually Adjust the width of the image as per requirement
+            )
+            st.text("\n")
+            st.text("\n")
+        else:
+            st.info('Hey! HERE for you to choose a company to have a better data visualization.')
 
 
 
@@ -409,59 +408,6 @@ def Results():
 
 
 
-
-def Consultants():
-    left_col, right_col = st.columns(2)
-    with left_col:
-        lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_djwnoxew.json")
-        st_lottie(
-            lottie_hello,
-            speed=1,
-            reverse=False,
-            loop=True,
-            quality="medium",  # medium ; high
-            height=750,
-            width=750,
-            key=None,
-        )
-
-    with right_col:
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.write("\n")
-        st.title("Professor Consultants")
-
-    st.text("\n")
-
-    st.write("##### Our professor consultant teams from i-Capitale are here to guide you now!")
-    st.write("Consultant Cost per hour: **RM200** ")
-    st.write("Help your company to earn at least RM10000 in **ONE** month!")
-    st.write("Don't miss this opportunity!")
-
-    st.image(
-        "https://images.assetsdelivery.com/compings_v2/terrry4/terrry42001/terrry4200100119.jpg",
-        width=500,  # Manually Adjust the width of the image as per requirement
-    )
-
-    st.text("\n")
-    st.text("\n")
-    st.info("All information during consultation are strictly confidential.")
-
-
-
 def AboutUs():
     left_col, right_col = st.columns(2)
     with left_col:
@@ -535,8 +481,8 @@ with st.sidebar:
     st.title("i-Capitale App")
     selected=option_menu(
         menu_title="Menu",
-        options=["Home Page","Our Model", "Prediction Results", "Consultants","About Us"],
-        icons=["house","wrench","clipboard-check","journal-medical","info-circle"],
+        options=["Home Page","Our Model", "Prediction Results", "About Us"],
+        icons=["house","wrench","clipboard-check","info-circle"],
         menu_icon="bookmark-star",
         default_index=0,
     )
@@ -549,9 +495,6 @@ elif selected == "Our Model":
 
 elif selected == "Prediction Results":
     Results()
-
-elif selected == "Consultants":
-    Consultants()
 
 elif selected == "About Us":
     AboutUs()

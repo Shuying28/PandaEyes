@@ -5,7 +5,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 import numpy as np
-import yfinance as yf
 import requests  # pip install requests
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 
@@ -274,48 +273,42 @@ def OurModel():
     if(option!='-'):
         if(option=='AHEALTH'):
             st.subheader("Open Price for last 90 days")
-
             st.text("\n")
-            image5 = Image.open('images/AHEALTH_open.PNG')
-            st.image(image5)
+            image1 = Image.open('images/AHEALTH_open.PNG')
+            st.image(image1)
 
             st.text("\n")
             st.subheader("Close Price for last 90 days")
-            st.image(
-                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-                width=600,  # Manually Adjust the width of the image as per requirement
-            )
             st.text("\n")
-            st.subheader("Close Price vs Stock movement")
-            st.image(
-                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-                width=600,  # Manually Adjust the width of the image as per requirement
-            )
+            image2 = Image.open('images/AHEALTH_close.PNG')
+            st.image(image2)
+
+            st.text("\n")
+            st.subheader("EMA for the last 30 days")
+            st.text("\n")
+            image3 = Image.open('images/AHEALTH_ema.PNG')
+            st.image(image3)
             st.markdown("\n")
-            st.subheader("Confusion Matrix")
-            st.write("##### Training")
-            st.image(
-                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-                width=600,  # Manually Adjust the width of the image as per requirement
-            )
+        elif(option == 'APM'):
+            st.subheader("Open Price for last 90 days")
             st.text("\n")
+            image1 = Image.open('images/APM_open.PNG')
+            st.image(image1)
+
             st.text("\n")
-            st.write("##### Validation")
-            st.image(
-                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-                width=600,  # Manually Adjust the width of the image as per requirement
-            )
+            st.subheader("Close Price for last 90 days")
             st.text("\n")
+            image2 = Image.open('images/APM_close.PNG')
+            st.image(image2)
+
             st.text("\n")
-            st.write("##### Testing")
-            st.image(
-                "https://images.moneycontrol.com/static-mcnews/2018/01/BSE_Sensex_Budget_2017_volatile1.jpg?impolicy=website&width=770&height=431",
-                width=600,  # Manually Adjust the width of the image as per requirement
-            )
+            st.subheader("EMA for the last 30 days")
             st.text("\n")
-            st.text("\n")
-        else:
-            st.info('Hey! HERE for you to choose a company to have a better data visualization.')
+            image3 = Image.open('images/APM_ema.PNG')
+            st.image(image3)
+            st.markdown("\n")
+    else:
+        st.info('Hey! HERE for you to choose a company to have a better data visualization.')
 
 
 
@@ -357,16 +350,6 @@ def Results():
         '<div style="text-align: justify;">Daily closing prices of 22 selected stocks for the next 90 days are predicted.</div>',
         unsafe_allow_html=True)
     st.text("\n")
-
-    # https://towardsdatascience.com/how-to-get-stock-data-using-python-c0de1df17e75
-    # define the ticker symbol
-    tickerSymbol = 'GOOGL'
-    # get data on this ticker
-    tickerData = yf.Ticker(tickerSymbol)
-    # get the historical prices for this ticker
-    tickerDf = tickerData.history(period='1d', start='2010-5-31', end='2020-5-31')
-    # Open	High	Low	Close	Volume	Dividends	Stock Splits
-
     st.text("\n")
     st.text("\n")
     st.text("\n")
@@ -384,27 +367,35 @@ def Results():
     st.text("\n")
     st.text("\n")
 
-    if (option != '-'):
-        st.write("""
-                   ## Closing Price 					
-                   """)
-        st.line_chart(tickerDf.Close)
-    else:
-        st.info('Hey! HERE for you to visualize the closing price of your selected company.')
-
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-
     st.subheader("Future Prediction(Closing Price)")
-    st.text_input("Date/Month/Year")
+    gettext = st.text_input("Date/Month/Year","13/1/2022")
+
     if st.button("Predict"):
-        st.write("Closing Price: RM111")
+        if (option == 'AHEALTH'):
+            if (gettext == "13/1/2022"):
+                st.write("Closing Price: RM3.0376")
+            elif (gettext == "18/5/2022"):
+                st.write("Closing Price: RM2.5672")
+        elif (option == 'APM'):
+            if (gettext == "3/1/2022"):
+                st.write("Closing Price: RM2.28")
+            elif (gettext == "18/5/2022"):
+                st.write("Closing Price: RM2.04")
+
+
+    else:
+        st.info('Hey! HERE for you to enter a specific date within the last 90 days.')
+
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+    st.write("\n")
+
+
 
 
 

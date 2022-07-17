@@ -527,7 +527,7 @@ def AboutUs():
 
     if feedback:
         st.header("Thank you for rating the app!")
-    
+
 
 
 
@@ -536,7 +536,7 @@ with st.sidebar:
     selected=option_menu(
         menu_title="Menu",
         options=["Home Page","Our Model", "Prediction Results", "Consultants","About Us"],
-        icons=None,
+        icons=["house","wrench","clipboard-check","journal-medical","info-circle"],
         menu_icon="bookmark-star",
         default_index=0,
     )
@@ -554,4 +554,4 @@ elif selected == "Consultants":
     Consultants()
 
 elif selected == "About Us":
-    
+    AboutUs()
